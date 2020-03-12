@@ -42,7 +42,11 @@ if (typeof w === 'object') {
                 if (txtDoc) {
                     r = txtDoc.createRange();
                     r.setStartBefore($('#'+sId, txtDoc).get(0));
-                    r.setEndAfter($('#'+eId, txtDoc).get(0));
+                    try {
+                        r.setEndAfter($('#'+eId, txtDoc).get(0));
+                    } catch (err) {
+                        console.log('ERROR: ', err);
+                    }
                 }
             }
 
